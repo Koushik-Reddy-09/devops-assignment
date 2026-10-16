@@ -48,3 +48,48 @@ Design and implement a workflow to:
   - single-page frontend in `frontend/index.html` that:
     - calls the `POST /notify/` API to trigger a background task.
     - polls the `GET /task_status/{task_id}` API to show live task status and result.
+
+## Run the Application with Docker Compose
+
+### Prerequisites
+- Docker Desktop installed and running.
+- Git installed to clone the repository.
+
+### Start the Application
+
+Run these commands from the project root directory:
+```bash
+docker compose config
+docker compose up --build -d
+docker compose ps
+```
+
+### Access the Application
+- Frontend: http://localhost:8080
+- Backend API: http://localhost:8000
+- API documentation: http://localhost:8000/docs
+
+### View Logs
+
+View logs for all services:
+
+```bash
+docker compose logs -f
+```
+
+View logs for an individual service:
+
+```bash
+docker compose logs -f backend
+docker compose logs -f worker
+docker compose logs -f redis
+docker compose logs -f frontend
+```
+
+### Stop the Application
+
+```bash
+docker compose down
+```
+
+To stop the application and remove its containers, use the command above. It does not remove named volumes unless the `-v` option is specified.
