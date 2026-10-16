@@ -4,8 +4,8 @@ import time
 # Configure Celery to use Redis as the message broker
 celery = Celery(
     "worker",  # This is the name of your Celery application
-    broker="redis://localhost:6379/0",  # This is the Redis connection string
-    backend="redis://localhost:6379/0",  # for storing task results
+    broker="redis://redis:6379/0",  # This is the Redis connection string
+    backend="redis://redis:6379/0",  # for storing task results
 )
 
 
